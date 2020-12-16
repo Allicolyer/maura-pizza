@@ -22,41 +22,6 @@
   --squiggle-green: #76ac1c;
   --white: #fff;
 }
-
-/* Button Styles */
-.button {
-  display: inline-block;
-  border-radius: var(--border-radius);
-  border: 2px solid var(--primary-color);
-  box-sizing: border-box;
-  text-decoration: none;
-  font-weight: 400;
-  font-size: 0.8em;
-  color: var(--text-color);
-  border-color: var(--primary-color);
-  background-color: var(--primary-color);
-  text-align: center;
-  transition: all 0.15s;
-}
-.button:hover {
-  cursor: pointer;
-  font-weight: bold;
-  border-color: var(--primary-color);
-  background-color: var(--primary-color);
-}
-.button:focus {
-  border-color: var(--primary-color);
-  background-color: var(--primary-color);
-}
-.button:disabled {
-  cursor: auto;
-  border-color: var(--gray);
-  background-color: var(--gray);
-}
-.button:disabled:hover {
-  font-weight: normal;
-}
-
 /* Page Styles */
 html {
   font-size: 1.25em;
@@ -93,13 +58,78 @@ body {
   flex: 1;
 }
 
-.maura-thumbnail {
+.pepperoni,
+.pepperoni-background,
+.squiggle-orange,
+.squiggle-green,
+.pizza-spec,
+.pepperoni-small,
+.slice-line {
+  visibility: hidden;
+}
+
+/* Button Styles */
+.button {
+  border-radius: var(--border-radius);
+  border: 2px solid var(--primary-color);
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.8em;
+  color: var(--text-color);
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+  text-align: center;
+  transition: all 0.15s;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 20%;
+}
+
+.button:hover {
+  cursor: pointer;
+  font-weight: bold;
+  border-color: var(--primary-color);
+  background-color: white;
+}
+.button:focus {
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+}
+.button:disabled {
+  cursor: auto;
+  border-color: var(--gray);
+  background-color: var(--gray);
+}
+.button:disabled:hover {
+  font-weight: normal;
+}
+
+.extra-button {
+  background-color: white;
+}
+.extra-button:hover {
+  background-color: var(--primary-color);
+}
+.extra-button:focus {
+  background-color: white;
+}
+
+.thumbnail {
   width: 50px;
 }
 
 @media screen and (max-width: 450px) {
-  .maura-thumbnail {
+  .thumbnail {
     width: 30px;
+  }
+  .button {
+    flex: 0;
+    width: 40px;
+    height: 40px;
   }
 }
 
