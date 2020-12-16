@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let button = document.createElement('button') // create button
     button.classList.add('extra-button', 'button', 'margin-small') // add classes
     button.setAttribute('id', type.name) // add id
-    button.onclick = () => showExtra(type.collection) // add onclick function to each button
+    button.onclick = () => toggleExtra(type.collection) // add onclick function to each button
     let image = document.createElement('img') // add image child
     image.classList.add('thumbnail')
     image.setAttribute('src', `assets/extras/${type.name}.png`)
@@ -104,10 +104,14 @@ document.addEventListener('DOMContentLoaded', function () {
     pieFill.setAttribute('fill', color)
   }
 
-  const showExtra = collection => {
+  const toggleExtra = collection => {
     //update color of pie
     collection.forEach(extra => {
-      extra.style.visibility = 'visible'
+      if (extra.style.visibility === 'visible') {
+        extra.style.visibility = 'hidden'
+      } else {
+        extra.style.visibility = 'visible'
+      }
     })
   }
   // when site runs
@@ -118,16 +122,16 @@ document.addEventListener('DOMContentLoaded', function () {
   ;[
     '#fef0bd',
     'maroon',
+    'Khaki',
+    'brown',
+    'yellow',
     'olive',
     'blue',
     'purple',
     'aquamarine',
-    'yellow',
-    'brown',
     'hotpink',
     'darkslategray',
-    'lime',
-    'orange'
+    'lime'
   ].forEach(color => createColorButton(color))
 
   // create an extra for each type
