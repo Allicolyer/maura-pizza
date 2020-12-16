@@ -3,26 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const mauraButtons = document.querySelectorAll('.maura-button')
   console.log(typeof mauraButtons)
   const mauraButtonsDiv = document.querySelector('#maura-button-container')
-  const defs = document.querySelector('#defs')
-
-  // javaScript for generating patterns
-  const createPatterns = i => {
-    let pattern = document.createElement('pattern') // create button
-    pattern.setAttribute('id', i) // add id
-    pattern.setAttribute('patternUnits', 'objectBoundingBox')
-    pattern.setAttribute('width', '100%')
-    pattern.setAttribute('height', '100%')
-    pattern.setAttribute('viewBox', '0 0 1 1')
-    pattern.setAttribute('preserveAspectRatio', 'xMidYMid slice')
-
-    let image = document.createElement('image') // add image child
-    image.setAttribute('href', `assets/maura/${i}.png`)
-    image.setAttribute('width', '1')
-    image.setAttribute('height', '1')
-    image.setAttribute('preserveAspectRatio', 'none')
-    pattern.appendChild(image)
-    defs.appendChild(pattern)
-  }
 
   // javaScript for generating buttons
   const createMauraButtons = i => {
@@ -38,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   for (i = 0; i < 12; i++) {
-    createPatterns(i)
     createMauraButtons(i)
   }
 
