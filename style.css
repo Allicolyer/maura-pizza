@@ -26,9 +26,7 @@
 /* Button Styles */
 .button {
   display: inline-block;
-  min-width: 130px;
   border-radius: var(--border-radius);
-  padding: 7.5px 15px;
   border: 2px solid var(--primary-color);
   box-sizing: border-box;
   text-decoration: none;
@@ -92,8 +90,12 @@ body {
 
 #pizza {
   width: 100%;
-  max-width: 800px;
+  max-width: 600px;
   max-height: 100vh;
+}
+
+.maura-thumbnail {
+  width: 50px;
 }
 
 /* Nav Styles */
@@ -138,10 +140,15 @@ nav a:hover {
   margin-left: var(--margin-big);
   margin-right: var(--margin-big);
 }
-
+.margin-small,
 .margin-x-small {
   margin-left: var(--margin-small);
   margin-right: var(--margin-small);
+}
+.margin-small,
+.margin-y-small {
+  margin-top: var(--margin-small);
+  margin-bottom: var(--margin-small);
 }
 
 /*flex divs */
