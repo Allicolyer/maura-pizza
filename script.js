@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const mauraButtonsDiv = document.querySelector('#maura-button-container')
   const colorButtonsDiv = document.querySelector('#color-button-container')
   const extraButtonsDiv = document.querySelector('#extra-button-container')
+  const resetButtonDiv = document.querySelector('#reset-button-container')
 
   // javaScript for generating buttons
   const createMauraButton = i => {
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
     button.appendChild(image)
     mauraButtonsDiv.appendChild(button)
   }
+
   //create a button that updates each topping with any picture
   const createRandomButton = () => {
     let button = document.createElement('button') // create button
@@ -36,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     button.onclick = () => updateToppingRandomly() // add onclick function to each button
     let span = document.createElement('span') // add image child
     span.innerHTML = '?'
-    span.classList.add('random-button-text')
+    span.classList.add('button-text')
     button.appendChild(span)
     mauraButtonsDiv.appendChild(button)
   }
@@ -51,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
     colorButtonsDiv.appendChild(button)
   }
   const createExtraButton = type => {
-    console.log(type)
     let button = document.createElement('button') // create button
     button.classList.add('extra-button', 'button', 'margin-small') // add classes
     button.setAttribute('id', type.name) // add id
@@ -63,34 +64,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     extraButtonsDiv.appendChild(button)
   }
-
-  //generate 12 buttons
-  for (i = 0; i < numberOfMauras; i++) {
-    createMauraButton(i)
+  //create a button that updates each topping with any picture
+  const createResetButton = () => {
+    let button = document.createElement('button') // create button
+    button.classList.add('button', 'margin-small') // add classes
+    button.setAttribute('id', 'reset-button') // add id
+    button.onclick = () => location.reload() // add onclick function to each button
+    let span = document.createElement('span') // add image child
+    span.innerHTML = 'Reset'
+    span.classList.add('button-text')
+    button.appendChild(span)
+    resetButtonDiv.appendChild(button)
   }
-  createRandomButton()
-  ;[
-    '#fef0bd',
-    'maroon',
-    'olive',
-    'blue',
-    'purple',
-    'aquamarine',
-    'yellow',
-    'brown',
-    'hotpink',
-    'darkslategray',
-    'lime',
-    'orange'
-  ].forEach(color => createColorButton(color))
-
-  // create an extra for each type
-  ;[
-    { name: 'orangeSquiggle', collection: orangeSquiggles },
-    { name: 'greenSquiggle', collection: greenSquiggles },
-    { name: 'pizzaSpec', collection: pizzaSpecs },
-    { name: 'sliceLine', collection: sliceLines }
-  ].forEach(type => createExtraButton(type))
 
   const updateTopping = pictureId => {
     // update each pepperoni with the background picture
@@ -125,4 +110,32 @@ document.addEventListener('DOMContentLoaded', function () {
       extra.style.visibility = 'visible'
     })
   }
+  // when site runs
+  for (i = 0; i < numberOfMauras; i++) {
+    createMauraButton(i)
+  }
+  createRandomButton()
+  ;[
+    '#fef0bd',
+    'maroon',
+    'olive',
+    'blue',
+    'purple',
+    'aquamarine',
+    'yellow',
+    'brown',
+    'hotpink',
+    'darkslategray',
+    'lime',
+    'orange'
+  ].forEach(color => createColorButton(color))
+
+  // create an extra for each type
+  ;[
+    { name: 'orangeSquiggle', collection: orangeSquiggles },
+    { name: 'greenSquiggle', collection: greenSquiggles },
+    { name: 'pizzaSpec', collection: pizzaSpecs },
+    { name: 'sliceLine', collection: sliceLines }
+  ].forEach(type => createExtraButton(type))
+  createResetButton()
 })

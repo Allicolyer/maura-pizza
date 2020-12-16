@@ -118,10 +118,14 @@ body {
   background-color: white;
 }
 
-.random-button-text {
+.button-text {
   font-family: var(--header-font);
-  font-size: 35px;
+  font-size: 30px;
   font-weight: bold;
+}
+
+#reset-button {
+  width: 100px;
 }
 
 .thumbnail {
@@ -136,29 +140,9 @@ body {
     width: 40px;
     height: 40px;
   }
-}
-
-/* Nav Styles */
-nav {
-  background-color: var(--primary-color);
-  color: var(--text-color);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  min-height: var(--nav-height);
-}
-nav a {
-  color: var(--text-color);
-  text-decoration: none;
-}
-nav a:hover {
-  font-weight: bold;
-}
-
-.logo {
-  width: 25px;
-  height: auto;
+  #reset-button {
+    width: 100px;
+  }
 }
 
 /* Utils */
