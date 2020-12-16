@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+  const numberOfMauras = 11
   // parts of the pizza
   const pepperonis = document.querySelectorAll('.pepperoni')
   const pepperoniBackgrounds = document.querySelectorAll(
@@ -27,6 +28,18 @@ document.addEventListener('DOMContentLoaded', function () {
     button.appendChild(image)
     mauraButtonsDiv.appendChild(button)
   }
+  //create a button that updates each topping with any picture
+  const createRandomButton = () => {
+    let button = document.createElement('button') // create button
+    button.classList.add('random-button', 'button', 'margin-small') // add classes
+    button.setAttribute('id', 'randomButton') // add id
+    button.onclick = () => updateToppingRandomly() // add onclick function to each button
+    let span = document.createElement('span') // add image child
+    span.innerHTML = '?'
+    span.classList.add('random-button-text')
+    button.appendChild(span)
+    mauraButtonsDiv.appendChild(button)
+  }
 
   const createColorButton = color => {
     let button = document.createElement('button') // create button
@@ -52,10 +65,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   //generate 12 buttons
-  for (i = 0; i < 12; i++) {
+  for (i = 0; i < numberOfMauras; i++) {
     createMauraButton(i)
   }
-
+  createRandomButton()
   ;[
     '#fef0bd',
     'maroon',
@@ -82,6 +95,17 @@ document.addEventListener('DOMContentLoaded', function () {
   const updateTopping = pictureId => {
     // update each pepperoni with the background picture
     pepperonis.forEach(pepperoni => {
+      pepperoni.style.visibility = 'visible'
+      pepperoni.setAttribute('fill', `url(#${pictureId})`)
+    })
+    pepperoniBackgrounds.forEach(pepperoni => {
+      pepperoni.style.visibility = 'visible'
+    })
+  }
+  const updateToppingRandomly = () => {
+    // update each pepperoni with a random picture
+    pepperonis.forEach(pepperoni => {
+      const pictureId = Math.floor(Math.random() * numberOfMauras)
       pepperoni.style.visibility = 'visible'
       pepperoni.setAttribute('fill', `url(#${pictureId})`)
     })
