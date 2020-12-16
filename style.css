@@ -51,6 +51,7 @@ body {
 #pizza {
   width: 100%;
   max-width: 900px;
+  max-height: calc(100vh - 2.5em);
   flex: 2;
 }
 
