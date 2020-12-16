@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
   const pepperonis = document.querySelectorAll('.pepperoni')
-  const mauraButtons = document.querySelectorAll('.maura-button')
-  console.log(typeof mauraButtons)
   const mauraButtonsDiv = document.querySelector('#maura-button-container')
 
   // javaScript for generating buttons
@@ -17,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     mauraButtonsDiv.appendChild(button)
   }
 
+  //generate 12 buttons
   for (i = 0; i < 12; i++) {
     createMauraButtons(i)
   }
